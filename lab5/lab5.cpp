@@ -15,7 +15,7 @@ Simulating Packet Transmissions in C++
 #include <sstream>*/
 
 //used for data structure
-#include "linkedList.h"
+#include "LinkedList.h"
 #include "event.h"
 
 using namespace std;
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 		return 0;
 	}
 	
-	linkedList<event> eventQ();	//make an empty event queue
+	LinkedList<event> eventQ();	//make an empty event queue
 	
 	
 	cout<<"\nDONE."<<endl<<endl;

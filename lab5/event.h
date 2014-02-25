@@ -10,8 +10,6 @@ class event{
 
 	public:
 		event(unsigned int time, Packet* packet);	//constructor prototype
-		//event();									//default constructor prototype
-		~event();									//destructor prototype
 		void print();
 };
 

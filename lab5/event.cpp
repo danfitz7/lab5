@@ -10,17 +10,6 @@ event::event(unsigned int TIME, Packet* PACKETPTR):
 	packetPtr(PACKETPTR)
 {}
 
-//default constructor
-//event::event(){
-//	time=0;
-//	packetPtr=NULL;
-//}
-
-//destructor
-event::~event(){
-	delete(packetPtr);
-}
-
 //print the words in the tree recursively
 void event::print(){
 	cout<<"EVENT:"<<endl;
