@@ -74,6 +74,8 @@ void testLinkedLists(){
 	testQ.print();
 	testQ.insert(new event(4,NULL));
 	testQ.print();
+	testQ.insert(new event(4,NULL));
+	testQ.print();
 	testQ.insert(new event(2,NULL));
 	testQ.print();
 	testQ.insert(new event(5,NULL));

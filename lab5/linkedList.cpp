@@ -55,6 +55,24 @@ event* LinkedList::pop(){
 //insert an item in the list in order
 //template<class data_t>
 void LinkedList::insert(event* newDataPtr){
+//	cout<<endl<<"Inserting Node "<<newDataPtr->time<<endl;
+	listNode** curNodeFromPtrPtr = &headNodePtr;	//address of the pointer that was used to access the current node (usually a pointer to the nextPtr of the previous node)
+	listNode* curNodePtr=NULL;						//pointer to the current node
+	while (*curNodeFromPtrPtr){						//while the current node exists
+		//if the current node exists, check if the new node should be before it
+		if (*newDataPtr < *((*curNodeFromPtrPtr)->dataPtr)){
+//			cout<<"\tInserting "<<newDataPtr->time<<" before " <<(*curNodeFromPtrPtr)->dataPtr->time<<"."<<endl;
+			break;
+		}
+		curNodePtr = (*curNodeFromPtrPtr)->nextPtr;		//update the current node to the next of the current node
+		curNodeFromPtrPtr = &((*curNodeFromPtrPtr)->nextPtr);	//update the pointer to the current node to the address of it's own next node
+	}
+	
+	//insert the new node between the previous and next
+	*curNodeFromPtrPtr = new listNode(newDataPtr, curNodePtr);
+	
+	
+	/*
 	//using double pointers for the special case where we need to insert at the beginning of the list and change the headNodePtr itself.
 	//otherwise this is the same as keeping track of the current node and it's parent, and inserting the new node between them.
 	cout<<endl<<"inserting event "<<newDataPtr->time<<endl;
@@ -70,13 +88,15 @@ void LinkedList::insert(event* newDataPtr){
 		}else{
 			cout<<"Not less than - moving on...."<<endl;
 		}
-		prevNodePtr=curNodePtr;					//update the previous node for the next loop
+		prevNodePtr=curNodePtr;					//update the previous node to the current node for the next loop
 		curNodePtr = &((*curNodePtr)->nextPtr);	//update the current node to it's own child (which may be NULL)
 	}
 	cout<<"ended loop."<<endl;
 	
 	//if we reached the end of the list, set the last node to the new node. otherwise, set the current node to the new node. Set the new node to the next of the current node
 	((*curNodePtr)? *prevNodePtr : *curNodePtr) = new listNode(newDataPtr, *curNodePtr);
+	*/
+	
 	
 	/*listNode* newNodePtr = new listNode(newDataPtr, *curNodePtr);
 	if (! *curNodePtr){	//if we reached the end of the list
