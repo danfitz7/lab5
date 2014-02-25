@@ -21,7 +21,7 @@ Simulating Packet Transmissions in C++
 using namespace std;
 
 //function prototypes
-
+void testLinkedLists();
 
 /*
 Assume you have two sending Host source nodes (S1 and S2) sending packets to one receiver Host node 
@@ -37,8 +37,50 @@ int main(int argc, char* argv[]){
 		return 0;
 	}
 	
-	LinkedList<event> eventQ();	//make an empty event queue
+	LinkedList eventQ();	//make an empty event queue
 	
+	testLinkedLists();
 	
 	cout<<"\nDONE."<<endl<<endl;
 }
+
+void testLinkedLists(){
+	LinkedList testQ = LinkedList();
+	
+	testQ.push(new event(0,NULL));
+	testQ.push(new event(1,NULL));
+	testQ.push(new event(3,NULL));
+	testQ.push(new event(4,NULL));
+	testQ.push(new event(2,NULL));
+	testQ.push(new event(5,NULL));
+	
+	cout<<"Pushed events."<<endl;
+	testQ.print();
+	cout<<"Popping..."<<endl;
+	
+	for (size_t i=0;i<=5;i++){
+		testQ.pop()->print();
+	}
+	
+	cout<<"new list"<<endl;
+	testQ.print();
+	
+	cout<<"Inserting events..."<<endl;
+	testQ.insert(new event(1,NULL));
+	testQ.print();
+	testQ.insert(new event(1,NULL));
+	testQ.print();
+	testQ.insert(new event(3,NULL));
+	testQ.print();
+	testQ.insert(new event(4,NULL));
+	testQ.print();
+	testQ.insert(new event(2,NULL));
+	testQ.print();
+	testQ.insert(new event(5,NULL));
+	testQ.print();
+	testQ.insert(new event(0,NULL));
+	
+	cout<<"Inserted events."<<endl;
+	testQ.print();
+}
+

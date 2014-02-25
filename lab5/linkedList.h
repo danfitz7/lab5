@@ -3,16 +3,23 @@
 
 #include "listNode.h"
 
-template<class data_t> class LinkedList{
+//template<class data_t>
+class LinkedList{
 	private:
-		listNode<data_t>* headNodePtr;
-		listNode<data_t>* tailNodePtr;
+		listNode* headNodePtr;
+		//listNode<data_t>* tailNodePtr;
 	
 	public:
+		LinkedList();
+		LinkedList(event* firstNodeDataPtr);
+		~LinkedList();
+		
 		void print();
-		void push(data_t* dataPtr);
-		data_t* pop();
-		void insert(data_t* dataPtr);
+		void push(event* dataPtr);
+		event* pop();
+		void insert(event* dataPtr);
+		
+	//template<event> class LinkedList;
 };
 
 #endif

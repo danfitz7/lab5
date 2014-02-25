@@ -12,5 +12,21 @@ event::event(unsigned int TIME, Packet* PACKETPTR):
 
 //print the words in the tree recursively
 void event::print(){
-	cout<<"EVENT:"<<endl;
+	cout<<"EVENT: "<<time<<endl;
+}
+
+bool event::operator< (const event& other) const{
+	return (time < other.time);
+}
+
+bool event::operator<= (const event& other) const{
+	return (time < other.time);
+}
+
+bool event::operator> (const event& other) const{
+	return (time < other.time);
+}
+
+bool event::operator>= (const event& other) const{
+	return (time < other.time);
 }
